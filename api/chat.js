@@ -14,7 +14,8 @@ export default async function handler(req, res) {
 
     try {
         // 替前端向 Google 发送请求
-        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`, {
+        // 换成 2.0 版本，通常网络情况会好很多
+const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(req.body) // 把前端发来的参数原样传给 Google
